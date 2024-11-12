@@ -3,10 +3,9 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "outDir": "dist",
-    "noEmit": true,         // Prevents TypeScript from writing output files
-    "skipLibCheck": true,   // Optional: Speeds up build by skipping type checks on library files
-    "checkJs": false        // Prevents TypeScript from type-checking JavaScript files
+    "noEmit": true,           // Prevent TypeScript from writing output files
+    "skipLibCheck": true      // Skip type checks on library files for faster builds
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.js"]  // Exclude JS files from compilation
 }

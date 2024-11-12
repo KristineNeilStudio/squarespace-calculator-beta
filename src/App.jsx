@@ -10,6 +10,7 @@ import { calculateProcessingFees } from "./utils/calculations";
 import { PLAN_PRICING } from "./constants/planPricing";
 import { COMMERCE_FEATURES } from "./constants/featureRequirements";
 import { STORAGE_LIMITS } from "./constants/storageRules";
+import NavigationBar from "./NavigationBar";
 
 function App() {
   return (

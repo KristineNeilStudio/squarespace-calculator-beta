@@ -7,15 +7,15 @@ const NavigationBar = () => {
         display: "flex",
         justifyContent: "flex-end", // Align items to the right
         padding: "10px 20px",
-        backgroundColor: "#f8f9fa",
-        borderBottom: "1px solid #e5e7eb", // Optional: subtle border to match app styling
+        backgroundColor: "white",
+        borderBottom: "0px solid #e5e7eb", // Optional: subtle border to match app styling
       }}
     >
       <a
         href="https://kristineneil.com"
         style={{
           textDecoration: "none",
-          color: "#007BFF",
+          color: "black",
           fontSize: "16px",
           fontWeight: "500",
           padding: "8px 16px",
@@ -26,7 +26,7 @@ const NavigationBar = () => {
           transition: "all 0.3s ease",
         }}
       >
-        Back to Main Site
+        Return to Main Site
       </a>
     </nav>
   );

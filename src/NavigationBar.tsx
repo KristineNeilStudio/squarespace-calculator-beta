@@ -5,8 +5,7 @@ const NavigationBar = () => {
     <nav
       style={{
         padding: "10px",
-        backgroundColor: "#f8f9fa",
-        border: "2px solid red",
+        backgroundColor: "#F9FAFB",
       }}
     >
       <a
@@ -14,7 +13,7 @@ const NavigationBar = () => {
         style={{
           marginRight: "20px",
           textDecoration: "none",
-          color: "#007BFF",
+          color: "black",
         }}
       >
         Back to Main Site

@@ -12,20 +12,6 @@ import { COMMERCE_FEATURES } from "./constants/featureRequirements";
 import { STORAGE_LIMITS } from "./constants/storageRules";
 import NavigationBar from "./NavigationBar";
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <NavigationBar /> {/* Include the navigation bar here */}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/calculator" element={<Calculator />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
-
 const App = () => {
   const [planSet, setPlanSet] = useState("current");
   const [features, setFeatures] = useState({
@@ -348,97 +334,107 @@ const App = () => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        padding: "24px",
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      }}
-    >
+    <div>
+      <NavigationBar />
+
       <div
         style={{
-          backgroundColor: "white",
-          borderRadius: "12px",
-          padding: "32px",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-          border: "1px solid #e5e7eb",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "24px",
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         }}
       >
-        <h2
+        <div
           style={{
-            fontSize: "24px",
-            fontWeight: "600",
-            color: "#111827",
-            marginBottom: "32px",
-            textAlign: "center",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "8px",
+            backgroundColor: "white",
+            borderRadius: "12px",
+            padding: "32px",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+            border: "1px solid #e5e7eb",
           }}
         >
-          Squarespace Fee Calculator
-          <span
+          <h2
             style={{
-              backgroundColor: "#f0fdf4",
-              color: "#065f46",
-              padding: "2px 8px",
-              borderRadius: "12px",
-              fontSize: "12px",
+              fontSize: "24px",
               fontWeight: "600",
-              border: "1px solid #059669",
-              letterSpacing: "0.025em",
+              color: "#111827",
+              marginBottom: "32px",
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
             }}
           >
-            BETA
-          </span>
-        </h2>
+            Squarespace Fee Calculator
+            <span
+              style={{
+                backgroundColor: "#f0fdf4",
+                color: "#065f46",
+                padding: "2px 8px",
+                borderRadius: "12px",
+                fontSize: "12px",
+                fontWeight: "600",
+                border: "1px solid #059669",
+                letterSpacing: "0.025em",
+              }}
+            >
+              BETA
+            </span>
+          </h2>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-          <PlanSelector planSet={planSet} setPlanSet={setPlanSet} />
+          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+            <PlanSelector planSet={planSet} setPlanSet={setPlanSet} />
 
-          <VideoStorageCalculator
-            planSet={planSet}
-            storageValue={features.videoStorageHours}
-            onStorageChange={({ storage }) => {
-              setFeatures((prev) => ({ ...prev, videoStorageHours: storage }));
-              const { plans: newEligiblePlans, minDpPlan } =
-                filterPlansByStorage(storage, planSet);
-              console.log("Eligible plans based on storage:", newEligiblePlans);
-              console.log("Minimum DP plan required:", minDpPlan);
-            }}
-          />
-
-          <EnhancedFeatureRequirements
-            features={features}
-            setFeatures={setFeatures}
-            planSet={planSet}
-          />
-
-          <BusinessMetricsSection
-            metrics={metrics}
-            setMetrics={setMetrics}
-            onReset={handleReset}
-          />
-
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <CalculatorButton
-              onClick={calculateFees}
-              disabled={!metrics.monthlyPhysical && !metrics.monthlyDigital}
+            <VideoStorageCalculator
+              planSet={planSet}
+              storageValue={features.videoStorageHours}
+              onStorageChange={({ storage }) => {
+                setFeatures((prev) => ({
+                  ...prev,
+                  videoStorageHours: storage,
+                }));
+                const { plans: newEligiblePlans, minDpPlan } =
+                  filterPlansByStorage(storage, planSet);
+                console.log(
+                  "Eligible plans based on storage:",
+                  newEligiblePlans
+                );
+                console.log("Minimum DP plan required:", minDpPlan);
+              }}
             />
-          </div>
 
-          {feeResults && (
-            <div style={{ scrollMarginTop: "20px" }}>
-              <ResultsSection
-                ref={resultsRef}
-                feeResults={feeResults}
-                onReset={handleReset}
+            <EnhancedFeatureRequirements
+              features={features}
+              setFeatures={setFeatures}
+              planSet={planSet}
+            />
+
+            <BusinessMetricsSection
+              metrics={metrics}
+              setMetrics={setMetrics}
+              onReset={handleReset}
+            />
+
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <CalculatorButton
+                onClick={calculateFees}
+                disabled={!metrics.monthlyPhysical && !metrics.monthlyDigital}
               />
             </div>
-          )}
+
+            {feeResults && (
+              <div style={{ scrollMarginTop: "20px" }}>
+                <ResultsSection
+                  ref={resultsRef}
+                  feeResults={feeResults}
+                  onReset={handleReset}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

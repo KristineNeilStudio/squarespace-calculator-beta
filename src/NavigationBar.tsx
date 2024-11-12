@@ -12,7 +12,7 @@ const NavigationBar = () => {
       }}
     >
       <a
-        href="https://kristineneil.com"
+        href="https://www.sqspcalculator.com"
         style={{
           textDecoration: "none",
           color: "black",

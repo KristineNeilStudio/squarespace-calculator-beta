@@ -1,10 +1,16 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import checker from "vite-plugin-checker";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    checker({
+      typescript: true, // Enable TypeScript checking
+    }),
+  ],
   build: {
-    outDir: "dist", // Match with tsconfig "outDir"
-    sourcemap: true, // Optional: adds sourcemaps, helpful for debugging
+    outDir: "dist",
+    sourcemap: true,
   },
 });

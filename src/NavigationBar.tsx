@@ -2,7 +2,13 @@ import React from "react";
 
 const NavigationBar = () => {
   return (
-    <nav style={{ padding: "10px", backgroundColor: "#f8f9fa" }}>
+    <nav
+      style={{
+        padding: "10px",
+        backgroundColor: "#f8f9fa",
+        border: "2px solid red",
+      }}
+    >
       <a
         href="https://kristineneil.com"
         style={{

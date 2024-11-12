@@ -11,6 +11,20 @@ import { PLAN_PRICING } from "./constants/planPricing";
 import { COMMERCE_FEATURES } from "./constants/featureRequirements";
 import { STORAGE_LIMITS } from "./constants/storageRules";
 
+function App() {
+  return (
+    <Router>
+      <div>
+        <NavigationBar /> {/* Include the navigation bar here */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/calculator" element={<Calculator />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
 const App = () => {
   const [planSet, setPlanSet] = useState("current");
   const [features, setFeatures] = useState({

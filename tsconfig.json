@@ -3,9 +3,10 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "outDir": "dist",        // Add this line to specify an output directory
-    "noEmit": true,           // Prevents emitting files, so it doesn't overwrite the original files
-    "skipLibCheck": true      // Optionally skip type checks on library files to avoid unnecessary errors
+    "outDir": "dist",
+    "noEmit": true,         // Prevents TypeScript from writing output files
+    "skipLibCheck": true,   // Optional: Speeds up build by skipping type checks on library files
+    "checkJs": false        // Prevents TypeScript from type-checking JavaScript files
   },
   "include": ["src/**/*"]
 }

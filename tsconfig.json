@@ -1,8 +1,11 @@
 {
-    "compilerOptions": {
-      "allowJs": true,
-      "jsx": "react-jsx",
-      "esModuleInterop": true
-    },
-    "include": ["src/**/*"]
-  }
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "outDir": "dist",        // Add this line to specify an output directory
+    "noEmit": true,           // Prevents emitting files, so it doesn't overwrite the original files
+    "skipLibCheck": true      // Optionally skip type checks on library files to avoid unnecessary errors
+  },
+  "include": ["src/**/*"]
+}

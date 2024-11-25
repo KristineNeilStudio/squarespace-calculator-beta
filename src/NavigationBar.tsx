@@ -12,7 +12,7 @@ const NavigationBar = () => {
       }}
     >
       <a
-        href="https://www.sqspcalculator.com"
+        href="https://resources.kristineneil.com/squarespace-fee-calculator"
         style={{
           textDecoration: "none",
           color: "black",

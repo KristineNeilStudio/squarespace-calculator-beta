@@ -8,6 +8,8 @@ const NavigationBar = () => {
     padding: "10px 20px",
     backgroundColor: "white",
     borderBottom: "0px solid #e5e7eb",
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   };
 
   const linkStyles = {
@@ -20,6 +22,8 @@ const NavigationBar = () => {
     backgroundColor: "#f3f4f6",
     border: "1px solid #e5e7eb",
     transition: "all 0.2s ease",
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   };
 
   const hoverEffect = (e) => {

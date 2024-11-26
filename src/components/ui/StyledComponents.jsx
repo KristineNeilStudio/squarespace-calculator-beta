@@ -1,9 +1,14 @@
 import React from "react";
-import { SectionTitle } from "./StyledComponents";
 
 export const PlanSelector = ({ planSet, setPlanSet }) => {
   const containerStyles = {
     marginBottom: "24px",
+  };
+
+  const sectionTitleStyles = {
+    fontSize: "18px",
+    fontWeight: "600",
+    marginBottom: "16px",
   };
 
   const radioOptionStyles = {
@@ -40,7 +45,7 @@ export const PlanSelector = ({ planSet, setPlanSet }) => {
 
   return (
     <div style={containerStyles}>
-      <SectionTitle>Which plan options do you see?</SectionTitle>
+      <h3 style={sectionTitleStyles}>Which plan options do you see?</h3>
 
       <label
         htmlFor="current"

@@ -5,11 +5,13 @@ const NavigationBar = () => {
     display: "flex",
     justifyContent: "flex-end",
     gap: "12px",
-    padding: "10px 20px",
+    padding: "10px 24px",
     backgroundColor: "white",
     borderBottom: "0px solid #e5e7eb",
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    maxWidth: "1200px",
+    margin: "0 auto",
   };
 
   const linkStyles = {
@@ -43,6 +45,8 @@ const NavigationBar = () => {
         style={linkStyles}
         onMouseEnter={hoverEffect}
         onMouseLeave={resetStyle}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Provide Feedback
       </a>

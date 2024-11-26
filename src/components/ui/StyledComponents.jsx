@@ -150,7 +150,7 @@ const CheckboxOption = ({ id, checked, onChange, title, description }) => {
   );
 };
 
-const Select = ({ label, value, onChange, options, className = "" }) => (
+const Select = ({ label, value, onChange, options = [], className = "" }) => (
   <div className={className}>
     {label && (
       <label
@@ -166,7 +166,7 @@ const Select = ({ label, value, onChange, options, className = "" }) => (
       </label>
     )}
     <select
-      value={value}
+      value={value || ""}
       onChange={onChange}
       style={{
         width: "100%",
@@ -178,11 +178,17 @@ const Select = ({ label, value, onChange, options, className = "" }) => (
         color: "#374151",
       }}
     >
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
+      {Array.isArray(options) && options.length > 0 ? (
+        options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))
+      ) : (
+        <option value="" disabled>
+          No options available
         </option>
-      ))}
+      )}
     </select>
   </div>
 );
@@ -206,7 +212,7 @@ const PlanSelector = ({ planSet, setPlanSet }) => (
       checked={planSet === "current"}
       onChange={(e) => setPlanSet(e.target.value)}
       title="Old Plans (Prior to Nov 2024)"
-      description="Personal, Business, Commerce Basic, Commerce Advanced"
+      description="Personal, Business, Basic Commerce, Advanced Commerce"
     />
   </div>
 );

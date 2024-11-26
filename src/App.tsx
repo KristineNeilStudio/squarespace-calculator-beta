@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
-import { PlanSelector } from "./components/ui/StyledComponents";
-import BusinessMetricsSection from "./components/core/BusinessMetricsSection";
-import CalculatorButton from "./components/ui/CalculatorButton";
-import ResultsSection from "./components/core/ResultsSection";
-import VideoStorageCalculator from "./components/core/VideoStorageCalculator";
-import EnhancedFeatureRequirements from "./components/core/EnhancedFeatureRequirements";
-import { calculateProcessingFees } from "./utils/calculations";
+import { PlanSelector } from "/src/components/ui/StyledComponents";
+import BusinessMetricsSection from "/src/components/core/BusinessMetricsSection";
+import CalculatorButton from "/src/components/ui/CalculatorButton";
+import ResultsSection from "/src/components/core/ResultsSection";
+import VideoStorageCalculator from "/src/components/core/VideoStorageCalculator";
+import EnhancedFeatureRequirements from "/src/components/core/EnhancedFeatureRequirements";
+import { calculateProcessingFees } from "/src/utils/calculations";
 
-import { PLAN_PRICING } from "./constants/planPricing";
-import { COMMERCE_FEATURES } from "./constants/featureRequirements";
-import { STORAGE_LIMITS } from "./constants/storageRules";
-import NavigationBar from "./NavigationBar";
+import { PLAN_PRICING } from "/src/constants/planPricing";
+import { COMMERCE_FEATURES } from "/src/constants/featureRequirements";
+import { STORAGE_LIMITS } from "/src/constants/storageRules";
+import NavigationBar from "/src/NavigationBar";
 
 const App = () => {
-  const [planSet, setPlanSet] = useState("current");
+  const [planSet, setPlanSet] = useState(null);
   const [features, setFeatures] = useState({
-    videoStorageHours: planSet === "current" ? "0-0.5" : "0-5",
+    videoStorageHours: null,
     needsSubscriptions: false,
     needsAbandonedCart: false,
     needsAdvancedShipping: false,
@@ -46,7 +46,8 @@ const App = () => {
   useEffect(() => {
     setFeatures((prev) => ({
       ...prev,
-      videoStorageHours: planSet === "current" ? "0-0.5" : "0-5",
+      videoStorageHours:
+        planSet === "current" ? "0-0.5" : planSet === "new" ? "0-5" : null,
     }));
   }, [planSet]);
 
@@ -308,9 +309,9 @@ const App = () => {
   };
 
   const handleReset = () => {
-    setPlanSet("current");
+    setPlanSet(null);
     setFeatures({
-      videoStorageHours: "0-0.5",
+      videoStorageHours: null,
       needsSubscriptions: false,
       needsAbandonedCart: false,
       needsAdvancedShipping: false,

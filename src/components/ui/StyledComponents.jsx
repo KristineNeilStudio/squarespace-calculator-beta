@@ -1,44 +1,4 @@
-/ src/components/ui/StyledComponents.jsx
-
 import React from "react";
-
-const containerStyles = {
-  display: "block",
-  padding: "16px",
-  marginBottom: "8px",
-  border: "1px solid #e5e7eb",
-  borderRadius: "8px",
-  backgroundColor: "#ffffff",
-  cursor: "pointer",
-};
-
-const flexContainerStyles = {
-  display: "flex",
-  alignItems: "flex-start",
-  gap: "12px",
-};
-
-const contentStyles = {
-  flex: 1,
-};
-
-const titleStyles = {
-  fontWeight: "600",
-  fontSize: "16px",
-  color: "#111827",
-  marginBottom: "4px",
-};
-
-const descriptionStyles = {
-  fontSize: "14px",
-  color: "#6B7280",
-};
-
-const sectionTitleStyles = {
-  fontSize: "18px",
-  fontWeight: "600",
-  marginBottom: "16px",
-};
 
 export const Card = ({ children, className = "" }) => (
   <div
@@ -56,7 +16,16 @@ export const Card = ({ children, className = "" }) => (
 );
 
 export const SectionTitle = ({ children }) => (
-  <h3 style={sectionTitleStyles}>{children}</h3>
+  <h3
+    style={{
+      fontSize: "18px",
+      fontWeight: "600",
+      marginBottom: "16px",
+      color: "#111827",
+    }}
+  >
+    {children}
+  </h3>
 );
 
 export const RadioOption = ({
@@ -66,30 +35,67 @@ export const RadioOption = ({
   onChange,
   title,
   description,
-}) => (
-  <label
-    htmlFor={id}
-    style={containerStyles}
-    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f9fafb")}
-    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
-  >
-    <div style={flexContainerStyles}>
-      <input
-        type="radio"
-        id={id}
-        name="planSet"
-        value={value}
-        checked={checked}
-        onChange={onChange}
-        style={{ marginTop: "4px" }}
-      />
-      <div style={contentStyles}>
-        <div style={titleStyles}>{title}</div>
-        <div style={descriptionStyles}>{description}</div>
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const containerStyles = {
+    display: "block",
+    padding: "16px",
+    marginBottom: "8px",
+    border: "1px solid #e5e7eb",
+    borderRadius: "8px",
+    backgroundColor: isHovered ? "#f9fafb" : "#ffffff",
+    cursor: "pointer",
+    transition: "background-color 0.2s ease",
+  };
+
+  return (
+    <label
+      htmlFor={id}
+      style={containerStyles}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "12px",
+        }}
+      >
+        <input
+          type="radio"
+          id={id}
+          name="planSet"
+          value={value}
+          checked={checked}
+          onChange={onChange}
+          style={{ marginTop: "4px" }}
+        />
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              fontWeight: "600",
+              fontSize: "16px",
+              color: "#111827",
+              marginBottom: "4px",
+            }}
+          >
+            {title}
+          </div>
+          <div
+            style={{
+              fontSize: "14px",
+              color: "#6B7280",
+            }}
+          >
+            {description}
+          </div>
+        </div>
       </div>
-    </div>
-  </label>
-);
+    </label>
+  );
+};
 
 export const CheckboxOption = ({
   id,
@@ -97,28 +103,65 @@ export const CheckboxOption = ({
   onChange,
   title,
   description,
-}) => (
-  <label
-    htmlFor={id}
-    style={containerStyles}
-    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f9fafb")}
-    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
-  >
-    <div style={flexContainerStyles}>
-      <input
-        type="checkbox"
-        id={id}
-        checked={checked}
-        onChange={onChange}
-        style={{ marginTop: "4px" }}
-      />
-      <div style={contentStyles}>
-        <div style={titleStyles}>{title}</div>
-        <div style={descriptionStyles}>{description}</div>
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const containerStyles = {
+    display: "block",
+    padding: "16px",
+    marginBottom: "8px",
+    border: "1px solid #e5e7eb",
+    borderRadius: "8px",
+    backgroundColor: isHovered ? "#f9fafb" : "#ffffff",
+    cursor: "pointer",
+    transition: "background-color 0.2s ease",
+  };
+
+  return (
+    <label
+      htmlFor={id}
+      style={containerStyles}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "12px",
+        }}
+      >
+        <input
+          type="checkbox"
+          id={id}
+          checked={checked}
+          onChange={onChange}
+          style={{ marginTop: "4px" }}
+        />
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              fontWeight: "600",
+              fontSize: "16px",
+              color: "#111827",
+              marginBottom: "4px",
+            }}
+          >
+            {title}
+          </div>
+          <div
+            style={{
+              fontSize: "14px",
+              color: "#6B7280",
+            }}
+          >
+            {description}
+          </div>
+        </div>
       </div>
-    </div>
-  </label>
-);
+    </label>
+  );
+};
 
 export const Select = ({ label, value, onChange, options, className = "" }) => (
   <div className={className}>
@@ -129,6 +172,7 @@ export const Select = ({ label, value, onChange, options, className = "" }) => (
           fontSize: "14px",
           fontWeight: "500",
           marginBottom: "4px",
+          color: "#374151",
         }}
       >
         {label}
@@ -144,6 +188,7 @@ export const Select = ({ label, value, onChange, options, className = "" }) => (
         border: "1px solid #e5e7eb",
         backgroundColor: "white",
         fontSize: "14px",
+        color: "#374151",
       }}
     >
       {options.map((option) => (
@@ -178,5 +223,3 @@ export const PlanSelector = ({ planSet, setPlanSet }) => (
     />
   </div>
 );
-
-export { containerStyles, titleStyles, descriptionStyles, sectionTitleStyles };

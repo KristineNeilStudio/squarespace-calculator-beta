@@ -1,5 +1,3 @@
-// src/components/ui/StyledComponents.jsx
-
 import React from "react";
 
 const containerStyles = {

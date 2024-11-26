@@ -1,22 +1,57 @@
 import React from "react";
 
-const NavigationBar = (): JSX.Element => (
-  <nav
-    style={{
-      display: "flex",
-      justifyContent: "flex-end",
-      padding: "10px 20px",
-      backgroundColor: "white",
-      borderBottom: "0px solid #e5e7eb",
-    }}
-  >
-    <a href="https://sqsfeecalculator-feedback.paperform.co/">
-      Provide Feedback
-    </a>
-    <a href="https://resources.kristineneil.com/squarespace-fee-calculator">
-      Return to Main Site
-    </a>
-  </nav>
-);
+const NavigationBar = () => {
+  const navStyles = {
+    display: "flex",
+    justifyContent: "flex-end",
+    gap: "12px",
+    padding: "10px 20px",
+    backgroundColor: "white",
+    borderBottom: "0px solid #e5e7eb",
+  };
+
+  const linkStyles = {
+    padding: "8px 16px",
+    borderRadius: "6px",
+    fontSize: "14px",
+    fontWeight: "500",
+    textDecoration: "none",
+    color: "#374151",
+    backgroundColor: "#f3f4f6",
+    border: "1px solid #e5e7eb",
+    transition: "all 0.2s ease",
+  };
+
+  const hoverEffect = (e) => {
+    e.target.style.backgroundColor = "#e5e7eb";
+    e.target.style.borderColor = "#d1d5db";
+  };
+
+  const resetStyle = (e) => {
+    e.target.style.backgroundColor = "#f3f4f6";
+    e.target.style.borderColor = "#e5e7eb";
+  };
+
+  return (
+    <nav style={navStyles}>
+      <a
+        href="https://sqsfeecalculator-feedback.paperform.co/"
+        style={linkStyles}
+        onMouseEnter={hoverEffect}
+        onMouseLeave={resetStyle}
+      >
+        Provide Feedback
+      </a>
+      <a
+        href="https://resources.kristineneil.com/squarespace-fee-calculator"
+        style={linkStyles}
+        onMouseEnter={hoverEffect}
+        onMouseLeave={resetStyle}
+      >
+        Return to Main Site
+      </a>
+    </nav>
+  );
+};
 
 export default NavigationBar;

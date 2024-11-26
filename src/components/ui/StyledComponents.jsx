@@ -1,6 +1,19 @@
 import React from "react";
 
-export const Card = ({ children, className = "" }) => (
+const SectionTitle = ({ children }) => (
+  <h3
+    style={{
+      fontSize: "18px",
+      fontWeight: "600",
+      marginBottom: "16px",
+      color: "#111827",
+    }}
+  >
+    {children}
+  </h3>
+);
+
+const Card = ({ children, className = "" }) => (
   <div
     style={{
       backgroundColor: "white",
@@ -15,27 +28,7 @@ export const Card = ({ children, className = "" }) => (
   </div>
 );
 
-export const SectionTitle = ({ children }) => (
-  <h3
-    style={{
-      fontSize: "18px",
-      fontWeight: "600",
-      marginBottom: "16px",
-      color: "#111827",
-    }}
-  >
-    {children}
-  </h3>
-);
-
-export const RadioOption = ({
-  id,
-  value,
-  checked,
-  onChange,
-  title,
-  description,
-}) => {
+const RadioOption = ({ id, value, checked, onChange, title, description }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const containerStyles = {
@@ -97,13 +90,7 @@ export const RadioOption = ({
   );
 };
 
-export const CheckboxOption = ({
-  id,
-  checked,
-  onChange,
-  title,
-  description,
-}) => {
+const CheckboxOption = ({ id, checked, onChange, title, description }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const containerStyles = {
@@ -163,7 +150,7 @@ export const CheckboxOption = ({
   );
 };
 
-export const Select = ({ label, value, onChange, options, className = "" }) => (
+const Select = ({ label, value, onChange, options, className = "" }) => (
   <div className={className}>
     {label && (
       <label
@@ -200,7 +187,7 @@ export const Select = ({ label, value, onChange, options, className = "" }) => (
   </div>
 );
 
-export const PlanSelector = ({ planSet, setPlanSet }) => (
+const PlanSelector = ({ planSet, setPlanSet }) => (
   <div style={{ marginBottom: "24px" }}>
     <SectionTitle>Which plan options do you see?</SectionTitle>
 
@@ -223,3 +210,12 @@ export const PlanSelector = ({ planSet, setPlanSet }) => (
     />
   </div>
 );
+
+export {
+  Card,
+  SectionTitle,
+  RadioOption,
+  CheckboxOption,
+  Select,
+  PlanSelector,
+};

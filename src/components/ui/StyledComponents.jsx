@@ -192,21 +192,21 @@ const PlanSelector = ({ planSet, setPlanSet }) => (
     <SectionTitle>Which plan options do you see?</SectionTitle>
 
     <RadioOption
-      id="current"
-      value="current"
-      checked={planSet === "current"}
-      onChange={(e) => setPlanSet(e.target.value)}
-      title="Old Plans"
-      description="Personal, Business, Commerce Basic, Commerce Advanced"
-    />
-
-    <RadioOption
       id="new"
       value="new"
       checked={planSet === "new"}
       onChange={(e) => setPlanSet(e.target.value)}
       title="Current Plans"
       description="Basic, Core, Plus, Advanced"
+    />
+
+    <RadioOption
+      id="current"
+      value="current"
+      checked={planSet === "current"}
+      onChange={(e) => setPlanSet(e.target.value)}
+      title="Old Plans"
+      description="Personal, Business, Commerce Basic, Commerce Advanced"
     />
   </div>
 );

@@ -196,7 +196,7 @@ const PlanSelector = ({ planSet, setPlanSet }) => (
       value="current"
       checked={planSet === "current"}
       onChange={(e) => setPlanSet(e.target.value)}
-      title="Old Plans"
+      title="Old Plans (Prior to Nov 2024)"
       description="Personal, Business, Commerce Basic, Commerce Advanced"
     />
 

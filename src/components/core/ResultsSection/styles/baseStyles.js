@@ -13,8 +13,8 @@ export const baseStyles = {
   },
   resultsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Flexible grid
-    gap: "16px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Creates flexible grid
+    gap: "16px", // Space between cards
     marginBottom: "24px",
   },
   resultCard: {
@@ -127,13 +127,22 @@ export const baseStyles = {
 
 // Add responsive media query styles for mobile
 const mobileStyles = `
-  @media (max-width: 768px) {
-    .results-grid { /* Target the container for the result cards */
-      display: flex;
-      flex-direction: column; /* Stack the cards vertically */
-      gap: 16px; /* Add spacing between cards */
-    }
+@media (max-width: 768px) {
+  .results-grid {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically on mobile */
+    gap: 16px; /* Space between stacked cards */
   }
+  .result-card {
+    width: 100%; /* Ensure full width on mobile */
+  }
+}
+
+/* Prevent overflow and scrolling on mobile */
+body {
+  overflow-x: hidden;
+}
+
 `;
 
 // Inject the responsive styles into the document head

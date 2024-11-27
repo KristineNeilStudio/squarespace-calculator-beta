@@ -14,7 +14,7 @@ const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
 
   const resultsLayoutStyles = {
     display: "grid",
-    gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr)",
+    gridTemplateColumns: "1fr", // Default to a single column
     gap: "24px",
     marginBottom: "24px",
   };
@@ -25,7 +25,7 @@ const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
   };
 
   const alternativeCardsStyles = {
-    gridColumn: "2",
+    gridColumn: "1", // Stack alternative cards below the main card
     minWidth: 0,
   };
 
@@ -46,6 +46,7 @@ const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
     transition: "color 0.2s ease",
   };
 
+  // Group and consolidate fee results
   const groupedResults = _.groupBy(
     feeResults,
     (result) =>
@@ -63,15 +64,34 @@ const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
   const mainResult = consolidatedResults[0];
   const alternativeResult = consolidatedResults[1];
 
+  // Add responsive behavior with a media query
+  const responsiveStyles = `
+    @media (min-width: 768px) {
+      .results-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Two-column layout on larger screens */
+      }
+      .alternative-cards {
+        grid-column: 2; /* Place alternative cards in the second column */
+      }
+    }
+  `;
+
+  // Inject responsive styles into the document
+  if (typeof document !== "undefined") {
+    const styleTag = document.createElement("style");
+    styleTag.innerHTML = responsiveStyles;
+    document.head.appendChild(styleTag);
+  }
+
   return (
     <div ref={ref} style={containerStyles}>
-      <div style={resultsLayoutStyles}>
+      <div style={resultsLayoutStyles} className="results-layout">
         <div style={mainCardStyles}>
           <ResultCard result={mainResult} index={0} />
         </div>
 
         {alternativeResult && (
-          <div style={alternativeCardsStyles}>
+          <div style={alternativeCardsStyles} className="alternative-cards">
             <ResultCard result={alternativeResult} index={1} />
           </div>
         )}

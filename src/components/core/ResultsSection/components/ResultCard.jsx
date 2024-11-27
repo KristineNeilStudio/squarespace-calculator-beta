@@ -2,11 +2,11 @@ import React from "react";
 
 const ResultCard = ({ result, index }) => {
   const cardStyles = {
+    width: "100%", // Ensure the card takes up the full width of its parent
     position: "relative",
     backgroundColor: index === 0 ? "#f0fdf4" : "white",
     borderRadius: "8px",
     border: "1px solid #e5e7eb",
-    overflow: "visible",
   };
 
   const recommendationTagStyles = {

@@ -13,7 +13,7 @@ import Footer from "./components/ui/Footer";
 import NavigationBar from "./components/ui/NavigationBar";
 
 const App = () => {
-  const [planSet, setPlanSet] = useState(null);
+  const [planSet, setPlanSet] = useState("new");
   const [features, setFeatures] = useState({
     videoStorageHours: null,
     needsSubscriptions: false,

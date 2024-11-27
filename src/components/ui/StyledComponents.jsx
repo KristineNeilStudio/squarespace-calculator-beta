@@ -28,7 +28,15 @@ const Card = ({ children, className = "" }) => (
   </div>
 );
 
-const RadioOption = ({ id, value, checked, onChange, title, description }) => {
+const RadioOption = ({
+  id,
+  value,
+  checked,
+  onChange,
+  title,
+  description,
+  style = {},
+}) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const containerStyles = {
@@ -40,6 +48,7 @@ const RadioOption = ({ id, value, checked, onChange, title, description }) => {
     backgroundColor: isHovered ? "#f9fafb" : "#ffffff",
     cursor: "pointer",
     transition: "background-color 0.2s ease",
+    ...style,
   };
 
   return (
@@ -202,8 +211,31 @@ const PlanSelector = ({ planSet, setPlanSet }) => (
       value="new"
       checked={planSet === "new"}
       onChange={(e) => setPlanSet(e.target.value)}
-      title="Current Plans"
+      title={
+        <div style={{ position: "relative", paddingRight: "100px" }}>
+          Current Plans
+          <span
+            style={{
+              position: "absolute",
+              top: "-24px",
+              right: "0",
+              backgroundColor: "#ecfdf5",
+              color: "#059669",
+              fontSize: "12px",
+              fontWeight: "600",
+              padding: "4px 8px",
+              borderRadius: "4px",
+              border: "1px solid #059669",
+            }}
+          >
+            Recommended
+          </span>
+        </div>
+      }
       description="Basic, Core, Plus, Advanced"
+      style={{
+        backgroundColor: "#f0fdf4",
+      }}
     />
 
     <RadioOption

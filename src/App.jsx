@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { PlanSelector } from "/src/components/ui/StyledComponents";
-import BusinessMetricsSection from "/src/components/core/BusinessMetricsSection";
-import CalculatorButton from "/src/components/ui/CalculatorButton";
-import ResultsSection from "/src/components/core/ResultsSection";
-import VideoStorageCalculator from "/src/components/core/VideoStorageCalculator";
-import EnhancedFeatureRequirements from "/src/components/core/EnhancedFeatureRequirements";
-import { calculateProcessingFees } from "/src/utils/calculations";
-
-import { PLAN_PRICING } from "/src/constants/planPricing";
-import { COMMERCE_FEATURES } from "/src/constants/featureRequirements";
-import { STORAGE_LIMITS } from "/src/constants/storageRules";
-import NavigationBar from "/src/NavigationBar";
+import { PlanSelector } from "./components/ui/StyledComponents";
+import BusinessMetricsSection from "./components/core/BusinessMetricsSection";
+import CalculatorButton from "./components/ui/CalculatorButton";
+import ResultsSection from "./components/core/ResultsSection";
+import VideoStorageCalculator from "./components/core/VideoStorageCalculator";
+import EnhancedFeatureRequirements from "./components/core/EnhancedFeatureRequirements";
+import { calculateProcessingFees } from "./utils/calculations";
+import { PLAN_PRICING } from "./constants/planPricing";
+import { COMMERCE_FEATURES } from "./constants/featureRequirements";
+import { STORAGE_LIMITS } from "./constants/storageRules";
+import Footer from "./components/ui/Footer";
+import NavigationBar from "./components/ui/NavigationBar";
 
 const App = () => {
   const [planSet, setPlanSet] = useState(null);
@@ -34,7 +34,6 @@ const App = () => {
     monthlyDigital: "",
     avgDigitalOrder: "",
   });
-
   const [feeResults, setFeeResults] = useState(null);
   const [eligibleProcessors, setEligibleProcessors] = useState([
     "Squarespace Payments",
@@ -369,7 +368,7 @@ const App = () => {
               gap: "8px",
             }}
           >
-            Squarespace Fee Calculator
+            SQSP Fee Calculator
             <span
               style={{
                 backgroundColor: "#f0fdf4",
@@ -438,6 +437,7 @@ const App = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

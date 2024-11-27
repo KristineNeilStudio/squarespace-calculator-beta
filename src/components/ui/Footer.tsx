@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowRight } from "lucide-react";
 
 const Footer: React.FC = () => {
   const footerStyles: React.CSSProperties = {
@@ -17,11 +18,12 @@ const Footer: React.FC = () => {
     border: "1px solid #e5e7eb",
   };
 
-  const sectionStyles: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "24px",
-    alignItems: "center",
+  const promotionStyles: React.CSSProperties = {
+    backgroundColor: "#f9fafb",
+    borderRadius: "12px",
+    padding: "24px",
+    marginBottom: "32px",
+    border: "1px solid #e5e7eb",
     textAlign: "center",
   };
 
@@ -30,7 +32,7 @@ const Footer: React.FC = () => {
     alignItems: "center",
     justifyContent: "center",
     padding: "12px 24px",
-    backgroundColor: "#111827",
+    backgroundColor: "#c83e2d",
     color: "white",
     borderRadius: "8px",
     border: "none",
@@ -39,13 +41,8 @@ const Footer: React.FC = () => {
     textDecoration: "none",
     transition: "all 0.2s ease",
     cursor: "pointer",
-  };
-
-  const disclaimerStyles: React.CSSProperties = {
-    fontSize: "14px",
-    color: "#6B7280",
-    maxWidth: "800px",
-    lineHeight: "1.5",
+    gap: "8px",
+    marginTop: "16px",
   };
 
   const linkStyles: React.CSSProperties = {
@@ -53,6 +50,16 @@ const Footer: React.FC = () => {
     textDecoration: "none",
     fontWeight: "500",
     transition: "color 0.2s ease",
+  };
+
+  const disclaimerStyles: React.CSSProperties = {
+    fontSize: "14px",
+    color: "#6B7280",
+    maxWidth: "800px",
+    lineHeight: "1.5",
+    textAlign: "center",
+    margin: "0 auto",
+    marginBottom: "16px",
   };
 
   const copyrightStyles: React.CSSProperties = {
@@ -67,54 +74,87 @@ const Footer: React.FC = () => {
   return (
     <footer style={footerStyles}>
       <div style={containerStyles}>
-        <div style={sectionStyles}>
-          <div>
-            <a
-              href="https://kristineneil.link/squarespace"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={buttonStyles}
-              onMouseEnter={(e) => {
-                const target = e.target as HTMLAnchorElement;
-                target.style.backgroundColor = "#000000";
-                target.style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                const target = e.target as HTMLAnchorElement;
-                target.style.backgroundColor = "#111827";
-                target.style.transform = "translateY(0)";
-              }}
-            >
-              Try Squarespace — Get 10% Off with Code KRISTINE10
-            </a>
-          </div>
-
-          <p style={disclaimerStyles}>
-            The SQSP Fee Calculator is built and maintained by{" "}
-            <a
-              href="https://kristineneil.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkStyles}
-              onMouseEnter={(e) => {
-                const target = e.target as HTMLAnchorElement;
-                target.style.color = "#4B5563";
-              }}
-              onMouseLeave={(e) => {
-                const target = e.target as HTMLAnchorElement;
-                target.style.color = "#111827";
-              }}
-            >
-              Kristine Neil
-            </a>
-            . The term "Squarespace" is a trademark of Squarespace, Inc. This
-            website is not affiliated with Squarespace, Inc. The accuracy of
-            information on this website is subject to change.
+        {/* Course Promotion Section */}
+        <div style={promotionStyles}>
+          <h2
+            style={{
+              fontSize: "20px",
+              fontWeight: "600",
+              color: "#111827",
+              marginBottom: "16px",
+            }}
+          >
+            Ready to Master the Strategy Behind the Calculator?
+          </h2>
+          <p
+            style={{
+              fontSize: "16px",
+              color: "#4B5563",
+              marginBottom: "24px",
+              maxWidth: "600px",
+              margin: "0 auto",
+              lineHeight: "1.6",
+            }}
+          >
+            Transform your Squarespace web design services with The Complete
+            Guide to Squarespace Payments. Learn exactly <strong>why</strong>{" "}
+            certain payment setups work better than others, and use these
+            insights to provide even more value to your clients.
           </p>
+          <a
+            href="https://resources.kristineneil.com/web-designers-guide-squarespace-payments"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={buttonStyles}
+          >
+            Get The Course Details
+            <ArrowRight width={20} height={20} />
+          </a>
+        </div>
 
-          <div style={copyrightStyles}>
-            © 2024 Kristine Neil, LLC. All rights reserved.
-          </div>
+        {/* Main Footer Content */}
+        <p style={disclaimerStyles}>
+          The SQSP Fee Calculator is built and maintained by{" "}
+          <a
+            href="https://kristineneil.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyles}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLAnchorElement;
+              target.style.color = "#4B5563";
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLAnchorElement;
+              target.style.color = "#111827";
+            }}
+          >
+            Kristine Neil
+          </a>
+          . The term "Squarespace" is a trademark of Squarespace, Inc. This
+          website is not affiliated with Squarespace, Inc. The accuracy of
+          information on this website is subject to change.{" "}
+          <a
+            href="https://kristineneil.link/squarespace"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={linkStyles}
+            onMouseEnter={(e) => {
+              const target = e.target as HTMLAnchorElement;
+              target.style.color = "#4B5563";
+            }}
+            onMouseLeave={(e) => {
+              const target = e.target as HTMLAnchorElement;
+              target.style.color = "#111827";
+            }}
+          >
+            Try Squarespace and get 10% off with code KRISTINE10
+          </a>
+          .
+        </p>
+
+        <div style={copyrightStyles}>
+          © 2024 Kristine Neil, LLC. All rights reserved.
         </div>
       </div>
     </footer>

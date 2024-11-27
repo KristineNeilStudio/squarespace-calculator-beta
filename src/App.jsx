@@ -308,9 +308,9 @@ const App = () => {
   };
 
   const handleReset = () => {
-    setPlanSet(null);
+    setPlanSet("new");
     setFeatures({
-      videoStorageHours: null,
+      videoStorageHours: "0-5",
       needsSubscriptions: false,
       needsAbandonedCart: false,
       needsAdvancedShipping: false,

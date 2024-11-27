@@ -13,7 +13,7 @@ export const baseStyles = {
   },
   resultsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Flexible grid
     gap: "16px",
     marginBottom: "24px",
   },
@@ -124,3 +124,21 @@ export const baseStyles = {
     marginTop: "24px",
   },
 };
+
+// Add responsive media query styles for mobile
+const mobileStyles = `
+  @media (max-width: 768px) {
+    .results-grid { /* Target the container for the result cards */
+      display: flex;
+      flex-direction: column; /* Stack the cards vertically */
+      gap: 16px; /* Add spacing between cards */
+    }
+  }
+`;
+
+// Inject the responsive styles into the document head
+if (typeof document !== "undefined") {
+  const styleTag = document.createElement("style");
+  styleTag.innerHTML = mobileStyles;
+  document.head.appendChild(styleTag);
+}

@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html,
+body {
+  margin: 0; /* Remove potential default margins */
+  padding: 0; /* Remove default padding */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}

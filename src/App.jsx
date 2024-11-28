@@ -11,6 +11,7 @@ import { COMMERCE_FEATURES } from "./constants/featureRequirements";
 import { STORAGE_LIMITS } from "./constants/storageRules";
 import Footer from "./components/ui/Footer";
 import NavigationBar from "./components/ui/NavigationBar";
+import AnnouncementBar from "./components/ui/AnnouncementBar";
 
 const App = () => {
   const [planSet, setPlanSet] = useState("new");
@@ -334,7 +335,13 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        maxWidth: "100%", // Ensure the container does not exceed the viewport
+        overflowX: "hidden", // Prevent any overflow
+      }}
+    >
+      <AnnouncementBar message="The calculator is best experienced on desktop. Mobile updates coming soon!" />
       <NavigationBar />
 
       <div
@@ -344,6 +351,7 @@ const App = () => {
           padding: "24px",
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          overflowX: "hidden", // Add this to ensure no overflow
         }}
       >
         <div
@@ -396,13 +404,6 @@ const App = () => {
                   ...prev,
                   videoStorageHours: storage,
                 }));
-                const { plans: newEligiblePlans, minDpPlan } =
-                  filterPlansByStorage(storage, planSet);
-                console.log(
-                  "Eligible plans based on storage:",
-                  newEligiblePlans
-                );
-                console.log("Minimum DP plan required:", minDpPlan);
               }}
             />
 

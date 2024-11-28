@@ -341,7 +341,7 @@ const App = () => {
         overflowX: "hidden", // Prevent any overflow
       }}
     >
-      <AnnouncementBar message="The calculator is best experienced on desktop. Mobile updates coming soon!" />
+      <AnnouncementBar message="The BETA version is best experienced on desktop. Mobile updates coming soon!" />
       <NavigationBar />
 
       <div

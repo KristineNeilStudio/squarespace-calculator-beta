@@ -61,7 +61,12 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
     const rule = validationRules[field];
     const numValue = Number(value);
 
-    if (rule.required && dependentValue > 0 && !value) {
+    // Modified validation for AOV fields when monthly revenue exists
+    if (field.startsWith("avg") && dependentValue > 0) {
+      if (!value) {
+        return rule.requiredMessage;
+      }
+    } else if (rule.required && dependentValue > 0 && !value) {
       return rule.requiredMessage;
     }
 
@@ -86,6 +91,7 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
     const newErrors = {};
 
     if (sellsPhysical) {
+      const monthlyPhysical = Number(metrics.monthlyPhysical);
       newErrors.monthlyPhysical = validateField(
         "monthlyPhysical",
         metrics.monthlyPhysical
@@ -93,11 +99,12 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
       newErrors.avgPhysicalOrder = validateField(
         "avgPhysicalOrder",
         metrics.avgPhysicalOrder,
-        metrics.monthlyPhysical
+        monthlyPhysical
       );
     }
 
     if (sellsDigital) {
+      const monthlyDigital = Number(metrics.monthlyDigital);
       newErrors.monthlyDigital = validateField(
         "monthlyDigital",
         metrics.monthlyDigital
@@ -105,7 +112,7 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
       newErrors.avgDigitalOrder = validateField(
         "avgDigitalOrder",
         metrics.avgDigitalOrder,
-        metrics.monthlyDigital
+        monthlyDigital
       );
     }
 
@@ -237,7 +244,8 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
                 width: "100%",
                 padding: "8px 12px",
                 border:
-                  touched[avgOrderField] && errors[avgOrderField]
+                  (touched[avgOrderField] || metrics[monthlyField] > 0) &&
+                  errors[avgOrderField]
                     ? "1px solid #ef4444"
                     : "1px solid #d1d5db",
                 borderRadius: "6px",
@@ -247,13 +255,18 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
               }}
               placeholder={`Enter average order value for ${type} products`}
             />
-            {touched[avgOrderField] && errors[avgOrderField] && (
-              <p
-                style={{ fontSize: "12px", color: "#ef4444", marginTop: "4px" }}
-              >
-                {errors[avgOrderField]}
-              </p>
-            )}
+            {(touched[avgOrderField] || metrics[monthlyField] > 0) &&
+              errors[avgOrderField] && (
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#ef4444",
+                    marginTop: "4px",
+                  }}
+                >
+                  {errors[avgOrderField]}
+                </p>
+              )}
             <p style={{ fontSize: "12px", color: "#6b7280", marginTop: "4px" }}>
               Minimum $0.01
             </p>

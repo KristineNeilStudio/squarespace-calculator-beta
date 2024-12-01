@@ -1,18 +1,23 @@
 // src/components/core/ResultsSection/components/PricingToggle.jsx
 import React from "react";
 import { baseStyles } from "../styles/baseStyles";
+import { colors } from "../../../constants/colors";
 
 const PricingToggle = ({ viewMode, setViewMode }) => {
   const buttonStyles = (isActive) => ({
     padding: "8px 16px",
     borderRadius: "6px",
-    border: "1px solid #e5e7eb",
-    backgroundColor: isActive ? "#000" : "#fff",
-    color: isActive ? "#fff" : "#000",
+    border: `1px solid ${colors.ui.border}`,
+    backgroundColor: isActive ? colors.accent.red : colors.ui.white,
+    color: isActive ? colors.ui.white : colors.primary.medium,
     cursor: "pointer",
     fontSize: "14px",
     fontWeight: "500",
     transition: "all 0.2s ease",
+    hover: {
+      backgroundColor: isActive ? colors.accent.red : colors.ui.backgroundShade,
+      filter: isActive ? "brightness(90%)" : "none",
+    },
   });
 
   return (

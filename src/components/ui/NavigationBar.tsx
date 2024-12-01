@@ -1,4 +1,5 @@
 import React from "react";
+import { colors } from "../../constants/colors";
 
 const NavigationBar = () => {
   const navStyles = {
@@ -6,8 +7,8 @@ const NavigationBar = () => {
     justifyContent: "flex-end",
     gap: "12px",
     padding: "10px 24px",
-    backgroundColor: "white",
-    borderBottom: "0px solid #e5e7eb",
+    backgroundColor: colors.ui.white,
+    borderBottom: `0px solid ${colors.ui.border}`,
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     maxWidth: "1200px",
@@ -20,22 +21,22 @@ const NavigationBar = () => {
     fontSize: "14px",
     fontWeight: "500",
     textDecoration: "none",
-    color: "#374151",
-    backgroundColor: "#f3f4f6",
-    border: "1px solid #e5e7eb",
+    color: colors.text.secondary,
+    backgroundColor: colors.ui.backgroundShade,
+    border: `1px solid ${colors.ui.border}`,
     transition: "all 0.2s ease",
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   };
 
   const hoverEffect = (e) => {
-    e.target.style.backgroundColor = "#e5e7eb";
-    e.target.style.borderColor = "#d1d5db";
+    e.target.style.backgroundColor = colors.primary.light;
+    e.target.style.borderColor = colors.ui.border;
   };
 
   const resetStyle = (e) => {
-    e.target.style.backgroundColor = "#f3f4f6";
-    e.target.style.borderColor = "#e5e7eb";
+    e.target.style.backgroundColor = colors.ui.backgroundShade;
+    e.target.style.borderColor = colors.ui.border;
   };
 
   return (

@@ -1,6 +1,5 @@
-// src/components/ui/CalculatorButton.jsx
-
 import React from "react";
+import { colors } from "../../constants/colors";
 
 const CalculatorButton = ({ onClick, disabled = false }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -19,10 +18,8 @@ const CalculatorButton = ({ onClick, disabled = false }) => {
     maxWidth: "320px",
     margin: "24px auto",
     border: "none",
-    background: disabled
-      ? "rgb(229, 231, 235)"
-      : "linear-gradient(to right, rgb(23, 23, 23), rgb(0, 0, 0))",
-    color: disabled ? "rgb(107, 114, 128)" : "white",
+    background: disabled ? colors.primary.light : colors.accent.red,
+    color: disabled ? colors.primary.medium : colors.ui.white,
     boxShadow: disabled
       ? "none"
       : "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
@@ -31,11 +28,11 @@ const CalculatorButton = ({ onClick, disabled = false }) => {
   const hoverStyles =
     !disabled && isHovered
       ? {
-          background:
-            "linear-gradient(to right, rgb(0, 0, 0), rgb(17, 17, 17))",
+          background: colors.accent.red,
           boxShadow:
             "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
           transform: "translateY(-1px)",
+          filter: "brightness(90%)",
         }
       : {};
 

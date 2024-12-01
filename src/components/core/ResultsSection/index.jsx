@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import ResultCard from "./components/ResultCard";
 import { RotateCcw } from "lucide-react";
 import _ from "lodash";
+import { colors } from "../../../constants/colors";
 
 const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
   if (!feeResults) return null;
@@ -21,7 +22,7 @@ const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
     width: "100%",
     textAlign: "center",
     padding: "12px",
-    color: "#6b7280",
+    color: colors.text.secondary,
     backgroundColor: "transparent",
     border: "none",
     cursor: "pointer",
@@ -106,20 +107,23 @@ const ResultsSection = forwardRef(({ feeResults, onReset }, ref) => {
         onClick={onReset}
         style={startOverStyles}
         onMouseEnter={(e) => {
-          e.target.style.color = "#000";
+          e.target.style.color = colors.primary.darkest;
           const icon = e.target.querySelector("svg");
-          if (icon) icon.style.stroke = "#000";
+          if (icon) icon.style.stroke = colors.primary.darkest;
         }}
         onMouseLeave={(e) => {
-          e.target.style.color = "#6b7280";
+          e.target.style.color = colors.text.secondary;
           const icon = e.target.querySelector("svg");
-          if (icon) icon.style.stroke = "#6b7280";
+          if (icon) icon.style.stroke = colors.text.secondary;
         }}
       >
         Start Over
         <RotateCcw
           size={16}
-          style={{ stroke: "#6b7280", transition: "stroke 0.2s ease" }}
+          style={{
+            stroke: colors.text.secondary,
+            transition: "stroke 0.2s ease",
+          }}
         />
       </button>
     </div>

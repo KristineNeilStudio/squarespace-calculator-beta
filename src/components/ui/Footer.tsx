@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { colors } from "../../constants/colors";
 
 const Footer: React.FC = () => {
   const footerStyles: React.CSSProperties = {
@@ -11,19 +12,19 @@ const Footer: React.FC = () => {
   };
 
   const containerStyles: React.CSSProperties = {
-    backgroundColor: "white",
+    backgroundColor: colors.ui.white,
     borderRadius: "12px",
     padding: "32px",
     boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
   };
 
   const promotionStyles: React.CSSProperties = {
-    backgroundColor: "#f9fafb",
+    backgroundColor: colors.primary.lightest,
     borderRadius: "12px",
     padding: "24px",
     marginBottom: "32px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
     textAlign: "center",
   };
 
@@ -32,8 +33,8 @@ const Footer: React.FC = () => {
     alignItems: "center",
     justifyContent: "center",
     padding: "12px 24px",
-    backgroundColor: "#c83e2d",
-    color: "white",
+    backgroundColor: colors.accent.red,
+    color: colors.ui.white,
     borderRadius: "8px",
     border: "none",
     fontSize: "14px",
@@ -46,7 +47,7 @@ const Footer: React.FC = () => {
   };
 
   const linkStyles: React.CSSProperties = {
-    color: "#111827",
+    color: colors.text.primary,
     textDecoration: "none",
     fontWeight: "500",
     transition: "color 0.2s ease",
@@ -54,7 +55,7 @@ const Footer: React.FC = () => {
 
   const disclaimerStyles: React.CSSProperties = {
     fontSize: "14px",
-    color: "#6B7280",
+    color: colors.text.secondary,
     maxWidth: "800px",
     lineHeight: "1.5",
     textAlign: "center",
@@ -64,9 +65,9 @@ const Footer: React.FC = () => {
 
   const copyrightStyles: React.CSSProperties = {
     fontSize: "14px",
-    color: "#6B7280",
+    color: colors.text.secondary,
     textAlign: "center",
-    borderTop: "1px solid #e5e7eb",
+    borderTop: `1px solid ${colors.ui.border}`,
     marginTop: "24px",
     paddingTop: "24px",
   };
@@ -80,7 +81,7 @@ const Footer: React.FC = () => {
             style={{
               fontSize: "20px",
               fontWeight: "600",
-              color: "#111827",
+              color: colors.text.primary,
               marginBottom: "16px",
             }}
           >
@@ -89,7 +90,7 @@ const Footer: React.FC = () => {
           <p
             style={{
               fontSize: "16px",
-              color: "#4B5563",
+              color: colors.text.secondary,
               marginBottom: "24px",
               maxWidth: "600px",
               margin: "0 auto",
@@ -122,11 +123,11 @@ const Footer: React.FC = () => {
             style={linkStyles}
             onMouseEnter={(e) => {
               const target = e.target as HTMLAnchorElement;
-              target.style.color = "#4B5563";
+              target.style.color = colors.text.secondary;
             }}
             onMouseLeave={(e) => {
               const target = e.target as HTMLAnchorElement;
-              target.style.color = "#111827";
+              target.style.color = colors.text.primary;
             }}
           >
             Kristine Neil
@@ -141,11 +142,11 @@ const Footer: React.FC = () => {
             style={linkStyles}
             onMouseEnter={(e) => {
               const target = e.target as HTMLAnchorElement;
-              target.style.color = "#4B5563";
+              target.style.color = colors.text.secondary;
             }}
             onMouseLeave={(e) => {
               const target = e.target as HTMLAnchorElement;
-              target.style.color = "#111827";
+              target.style.color = colors.text.primary;
             }}
           >
             Try Squarespace and get 10% off with code KRISTINE10

@@ -1,4 +1,5 @@
 // src/components/core/ResultsSection/styles/baseStyles.js
+import { colors } from "../../../../constants/colors";
 
 export const baseStyles = {
   container: {
@@ -13,15 +14,15 @@ export const baseStyles = {
   },
   resultsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Creates flexible grid
-    gap: "16px", // Space between cards
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "16px",
     marginBottom: "24px",
   },
   resultCard: {
-    backgroundColor: "#ffffff",
+    backgroundColor: colors.ui.white,
     borderRadius: "12px",
     padding: "24px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
     position: "relative",
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
   },
@@ -29,8 +30,8 @@ export const baseStyles = {
     position: "absolute",
     top: "0",
     right: "0",
-    backgroundColor: "#059669",
-    color: "white",
+    backgroundColor: colors.accent.red,
+    color: colors.ui.white,
     padding: "4px 12px",
     borderBottomLeftRadius: "8px",
     fontSize: "14px",
@@ -42,7 +43,7 @@ export const baseStyles = {
   },
   processor: {
     fontSize: "14px",
-    color: "#6b7280",
+    color: colors.text.secondary,
     marginBottom: "16px",
   },
   priceContainer: {
@@ -54,18 +55,18 @@ export const baseStyles = {
   },
   pricePeriod: {
     fontSize: "14px",
-    color: "#6b7280",
+    color: colors.text.secondary,
   },
   savingsIndicator: {
     fontSize: "14px",
-    color: "#059669",
+    color: colors.accent.red,
     marginTop: "4px",
   },
   breakdownContainer: {
-    backgroundColor: "#f9fafb",
+    backgroundColor: colors.primary.lightest,
     margin: "24px -24px -24px -24px",
     padding: "16px 24px",
-    borderTop: "1px solid #e5e7eb",
+    borderTop: `1px solid ${colors.ui.border}`,
     borderBottomLeftRadius: "12px",
     borderBottomRightRadius: "12px",
   },
@@ -78,12 +79,12 @@ export const baseStyles = {
     display: "flex",
     justifyContent: "space-between",
     fontSize: "14px",
-    color: "#6b7280",
+    color: colors.text.secondary,
     marginBottom: "8px",
   },
   savingsBox: {
-    backgroundColor: "#ecfdf5",
-    borderLeft: "4px solid #059669",
+    backgroundColor: colors.accent.redLight,
+    borderLeft: `4px solid ${colors.accent.red}`,
     padding: "16px",
     borderRadius: "0 8px 8px 0",
     marginBottom: "24px",
@@ -92,16 +93,16 @@ export const baseStyles = {
     display: "flex",
     alignItems: "center",
     gap: "8px",
-    color: "#047857",
+    color: colors.accent.red,
     fontWeight: "600",
     marginBottom: "8px",
   },
   savingsText: {
     fontSize: "14px",
-    color: "#065f46",
+    color: colors.accent.red,
   },
   notesContainer: {
-    backgroundColor: "#f3f4f6",
+    backgroundColor: colors.primary.lightest,
     borderRadius: "8px",
     padding: "16px",
     marginTop: "24px",
@@ -110,13 +111,13 @@ export const baseStyles = {
     margin: 0,
     padding: "0 0 0 20px",
     fontSize: "14px",
-    color: "#6b7280",
+    color: colors.text.secondary,
   },
   startOver: {
     width: "100%",
     textAlign: "center",
     padding: "12px",
-    color: "#6b7280",
+    color: colors.text.secondary,
     backgroundColor: "transparent",
     border: "none",
     cursor: "pointer",
@@ -130,11 +131,11 @@ const mobileStyles = `
 @media (max-width: 768px) {
   .results-grid {
     display: flex;
-    flex-direction: column; /* Stack cards vertically on mobile */
-    gap: 16px; /* Space between stacked cards */
+    flex-direction: column;
+    gap: 16px;
   }
   .result-card {
-    width: 100%; /* Ensure full width on mobile */
+    width: 100%;
   }
 }
 
@@ -142,7 +143,6 @@ const mobileStyles = `
 body {
   overflow-x: hidden;
 }
-
 `;
 
 // Inject the responsive styles into the document head

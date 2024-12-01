@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, SectionTitle } from "../ui/StyledComponents";
+import { colors } from "../../constants/colors";
 
 const validationRules = {
   monthlyPhysical: {
@@ -40,7 +41,6 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
-  // Add a new effect to handle external reset
   useEffect(() => {
     if (
       !metrics.monthlyPhysical &&
@@ -61,7 +61,6 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
     const rule = validationRules[field];
     const numValue = Number(value);
 
-    // Modified validation for AOV fields when monthly revenue exists
     if (field.startsWith("avg") && dependentValue > 0) {
       if (!value) {
         return rule.requiredMessage;
@@ -180,7 +179,7 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
               display: "block",
               fontSize: "14px",
               fontWeight: "500",
-              color: "#374151",
+              color: colors.text.secondary,
               marginBottom: "4px",
             }}
           >
@@ -200,8 +199,8 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
               padding: "8px 12px",
               border:
                 touched[monthlyField] && errors[monthlyField]
-                  ? "1px solid #ef4444"
-                  : "1px solid #d1d5db",
+                  ? `1px solid ${colors.accent.red}`
+                  : `1px solid ${colors.ui.border}`,
               borderRadius: "6px",
               fontSize: "14px",
               transition: "all 0.2s",
@@ -210,7 +209,13 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
             placeholder={`Enter monthly revenue from ${type} products`}
           />
           {touched[monthlyField] && errors[monthlyField] && (
-            <p style={{ fontSize: "12px", color: "#ef4444", marginTop: "4px" }}>
+            <p
+              style={{
+                fontSize: "12px",
+                color: colors.accent.red,
+                marginTop: "4px",
+              }}
+            >
               {errors[monthlyField]}
             </p>
           )}
@@ -223,7 +228,7 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
                 display: "block",
                 fontSize: "14px",
                 fontWeight: "500",
-                color: "#374151",
+                color: colors.text.secondary,
                 marginBottom: "4px",
               }}
             >
@@ -246,8 +251,8 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
                 border:
                   (touched[avgOrderField] || metrics[monthlyField] > 0) &&
                   errors[avgOrderField]
-                    ? "1px solid #ef4444"
-                    : "1px solid #d1d5db",
+                    ? `1px solid ${colors.accent.red}`
+                    : `1px solid ${colors.ui.border}`,
                 borderRadius: "6px",
                 fontSize: "14px",
                 transition: "all 0.2s",
@@ -260,14 +265,20 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
                 <p
                   style={{
                     fontSize: "12px",
-                    color: "#ef4444",
+                    color: colors.accent.red,
                     marginTop: "4px",
                   }}
                 >
                   {errors[avgOrderField]}
                 </p>
               )}
-            <p style={{ fontSize: "12px", color: "#6b7280", marginTop: "4px" }}>
+            <p
+              style={{
+                fontSize: "12px",
+                color: colors.text.secondary,
+                marginTop: "4px",
+              }}
+            >
               Minimum $0.01
             </p>
           </div>
@@ -283,7 +294,7 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
       <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
         <div
           style={{
-            backgroundColor: "#f9fafb",
+            backgroundColor: colors.ui.backgroundShade,
             borderRadius: "8px",
             padding: "16px",
             transition: "background-color 0.2s",
@@ -309,10 +320,10 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
               }}
             />
             <div>
-              <div style={{ fontWeight: "500", color: "#111827" }}>
+              <div style={{ fontWeight: "500", color: colors.text.primary }}>
                 Physical Products
               </div>
-              <div style={{ fontSize: "14px", color: "#6b7280" }}>
+              <div style={{ fontSize: "14px", color: colors.text.secondary }}>
                 Do you sell physical products?
               </div>
             </div>
@@ -322,7 +333,7 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
 
         <div
           style={{
-            backgroundColor: "#f9fafb",
+            backgroundColor: colors.ui.backgroundShade,
             borderRadius: "8px",
             padding: "16px",
             transition: "background-color 0.2s",
@@ -348,10 +359,10 @@ const BusinessMetricsSection = ({ metrics, setMetrics, onReset }) => {
               }}
             />
             <div>
-              <div style={{ fontWeight: "500", color: "#111827" }}>
+              <div style={{ fontWeight: "500", color: colors.text.primary }}>
                 Digital Products
               </div>
-              <div style={{ fontSize: "14px", color: "#6b7280" }}>
+              <div style={{ fontSize: "14px", color: colors.text.secondary }}>
                 Do you sell digital products?
               </div>
             </div>

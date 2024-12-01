@@ -1,4 +1,5 @@
 import React from "react";
+import { colors } from "../../constants/colors";
 
 const SectionTitle = ({ children }) => (
   <h3
@@ -6,7 +7,7 @@ const SectionTitle = ({ children }) => (
       fontSize: "18px",
       fontWeight: "600",
       marginBottom: "16px",
-      color: "#111827",
+      color: colors.text.primary,
     }}
   >
     {children}
@@ -16,10 +17,10 @@ const SectionTitle = ({ children }) => (
 const Card = ({ children, className = "" }) => (
   <div
     style={{
-      backgroundColor: "white",
+      backgroundColor: colors.ui.white,
       borderRadius: "8px",
       padding: "24px",
-      border: "1px solid #e5e7eb",
+      border: `1px solid ${colors.ui.border}`,
       marginBottom: "24px",
     }}
     className={className}
@@ -43,9 +44,9 @@ const RadioOption = ({
     display: "block",
     padding: "16px",
     marginBottom: "8px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
     borderRadius: "8px",
-    backgroundColor: isHovered ? "#f9fafb" : "#ffffff",
+    backgroundColor: isHovered ? colors.ui.backgroundShade : colors.ui.white,
     cursor: "pointer",
     transition: "background-color 0.2s ease",
     ...style,
@@ -79,7 +80,7 @@ const RadioOption = ({
             style={{
               fontWeight: "600",
               fontSize: "16px",
-              color: "#111827",
+              color: colors.text.primary,
               marginBottom: "4px",
             }}
           >
@@ -88,7 +89,7 @@ const RadioOption = ({
           <div
             style={{
               fontSize: "14px",
-              color: "#6B7280",
+              color: colors.text.secondary,
             }}
           >
             {description}
@@ -106,9 +107,9 @@ const CheckboxOption = ({ id, checked, onChange, title, description }) => {
     display: "block",
     padding: "16px",
     marginBottom: "8px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
     borderRadius: "8px",
-    backgroundColor: isHovered ? "#f9fafb" : "#ffffff",
+    backgroundColor: isHovered ? colors.ui.backgroundShade : colors.ui.white,
     cursor: "pointer",
     transition: "background-color 0.2s ease",
   };
@@ -139,7 +140,7 @@ const CheckboxOption = ({ id, checked, onChange, title, description }) => {
             style={{
               fontWeight: "600",
               fontSize: "16px",
-              color: "#111827",
+              color: colors.text.primary,
               marginBottom: "4px",
             }}
           >
@@ -148,7 +149,7 @@ const CheckboxOption = ({ id, checked, onChange, title, description }) => {
           <div
             style={{
               fontSize: "14px",
-              color: "#6B7280",
+              color: colors.text.secondary,
             }}
           >
             {description}
@@ -168,7 +169,7 @@ const Select = ({ label, value, onChange, options = [], className = "" }) => (
           fontSize: "14px",
           fontWeight: "500",
           marginBottom: "4px",
-          color: "#374151",
+          color: colors.text.secondary,
         }}
       >
         {label}
@@ -181,10 +182,10 @@ const Select = ({ label, value, onChange, options = [], className = "" }) => (
         width: "100%",
         padding: "8px 12px",
         borderRadius: "6px",
-        border: "1px solid #e5e7eb",
-        backgroundColor: "white",
+        border: `1px solid ${colors.ui.border}`,
+        backgroundColor: colors.ui.white,
         fontSize: "14px",
-        color: "#374151",
+        color: colors.text.secondary,
       }}
     >
       {Array.isArray(options) && options.length > 0 ? (
@@ -219,13 +220,13 @@ const PlanSelector = ({ planSet, setPlanSet }) => (
               position: "absolute",
               top: "-24px",
               right: "0",
-              backgroundColor: "#ecfdf5",
-              color: "#059669",
+              backgroundColor: colors.accent.redLight,
+              color: colors.accent.red,
               fontSize: "12px",
               fontWeight: "600",
               padding: "4px 8px",
               borderRadius: "4px",
-              border: "1px solid #059669",
+              border: `1px solid ${colors.accent.red}`,
             }}
           >
             Recommended
@@ -234,7 +235,7 @@ const PlanSelector = ({ planSet, setPlanSet }) => (
       }
       description="Basic, Core, Plus, Advanced"
       style={{
-        backgroundColor: "#f0fdf4",
+        backgroundColor: colors.ui.backgroundShade,
       }}
     />
 

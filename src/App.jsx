@@ -12,6 +12,7 @@ import { STORAGE_LIMITS } from "./constants/storageRules";
 import Footer from "./components/ui/Footer";
 import NavigationBar from "./components/ui/NavigationBar";
 import AnnouncementBar from "./components/ui/AnnouncementBar";
+import { colors } from "./constants/colors";
 
 const App = () => {
   const [planSet, setPlanSet] = useState("new");
@@ -337,8 +338,8 @@ const App = () => {
   return (
     <div
       style={{
-        maxWidth: "100%", // Ensure the container does not exceed the viewport
-        overflowX: "hidden", // Prevent any overflow
+        maxWidth: "100%",
+        overflowX: "hidden",
       }}
     >
       <AnnouncementBar message="The BETA version is best experienced on desktop. Mobile updates coming soon!" />
@@ -351,23 +352,23 @@ const App = () => {
           padding: "24px",
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-          overflowX: "hidden", // Add this to ensure no overflow
+          overflowX: "hidden",
         }}
       >
         <div
           style={{
-            backgroundColor: "white",
+            backgroundColor: colors.ui.white,
             borderRadius: "12px",
             padding: "32px",
             boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-            border: "1px solid #e5e7eb",
+            border: `1px solid ${colors.ui.border}`,
           }}
         >
           <h2
             style={{
               fontSize: "24px",
               fontWeight: "600",
-              color: "#111827",
+              color: colors.text.primary,
               marginBottom: "32px",
               textAlign: "center",
               display: "flex",
@@ -379,13 +380,13 @@ const App = () => {
             SQSP Fee Calculator
             <span
               style={{
-                backgroundColor: "#f0fdf4",
-                color: "#065f46",
+                backgroundColor: colors.accent.redLight,
+                color: colors.accent.red,
                 padding: "2px 8px",
                 borderRadius: "12px",
                 fontSize: "12px",
                 fontWeight: "600",
-                border: "1px solid #059669",
+                border: `1px solid ${colors.accent.red}`,
                 letterSpacing: "0.025em",
               }}
             >

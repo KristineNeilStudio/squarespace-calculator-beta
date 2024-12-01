@@ -1,20 +1,22 @@
 import React from "react";
+import { colors } from "../../../../constants/colors";
 
 const ResultCard = ({ result, index }) => {
   const cardStyles = {
     width: "100%", // Ensure the card takes up the full width of its parent
     position: "relative",
-    backgroundColor: index === 0 ? "#f0fdf4" : "white",
+    backgroundColor: index === 0 ? colors.ui.backgroundShade : colors.ui.white,
     borderRadius: "8px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
   };
 
   const recommendationTagStyles = {
     position: "absolute",
     top: "0",
     right: "24px",
-    backgroundColor: index === 0 ? "#065f46" : "#374151",
-    color: "white",
+    backgroundColor:
+      index === 0 ? colors.status.recommendedTag : colors.status.alternativeTag,
+    color: colors.ui.white,
     padding: "6px 12px",
     fontSize: "12px",
     fontWeight: "600",
@@ -27,14 +29,14 @@ const ResultCard = ({ result, index }) => {
 
   const headerStyles = {
     padding: "20px 24px",
-    borderBottom: "1px solid #e5e7eb",
+    borderBottom: `1px solid ${colors.ui.border}`,
   };
 
   const planNameStyles = {
     fontSize: "24px",
     fontWeight: "700",
     marginBottom: "12px",
-    color: "#111827",
+    color: colors.text.primary,
     lineHeight: "1.2",
   };
 
@@ -56,26 +58,28 @@ const ResultCard = ({ result, index }) => {
     fontSize: "12px",
     padding: "4px 10px",
     borderRadius: "4px",
-    backgroundColor: "#f3f4f6",
-    color: "#374151",
+    backgroundColor: colors.accent.redLight,
+    border: `1px solid ${colors.accent.red}`,
+    color: colors.accent.red,
   };
 
   const dpPlanBadgeStyles = {
     ...pillStyles,
-    backgroundColor: "#eff6ff",
-    color: "#1e40af",
+    backgroundColor: colors.accent.redLight,
+    border: `1px solid ${colors.accent.red}`,
+    color: colors.accent.red,
   };
 
   const priceWrapperStyles = {
     padding: "16px 24px",
-    borderBottom: "1px solid #e5e7eb",
-    backgroundColor: "#fafafa",
+    borderBottom: `1px solid ${colors.ui.border}`,
+    backgroundColor: colors.ui.backgroundShade,
   };
 
   const priceStyles = {
     fontSize: "20px",
     fontWeight: "600",
-    color: "#111827",
+    color: colors.text.primary,
   };
 
   const breakdownContainerStyles = {
@@ -89,7 +93,7 @@ const ResultCard = ({ result, index }) => {
   const sectionTitleStyles = {
     fontSize: "13px",
     fontWeight: "500",
-    color: "#6b7280",
+    color: colors.text.secondary,
     marginBottom: "8px",
   };
 
@@ -97,14 +101,14 @@ const ResultCard = ({ result, index }) => {
     display: "flex",
     justifyContent: "space-between",
     fontSize: "13px",
-    color: "#374151",
+    color: colors.text.secondary,
     padding: "4px 0",
     fontFamily:
       "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   };
 
   const lineItemLabelStyles = {
-    color: "#374151",
+    color: colors.text.secondary,
   };
 
   const lineItemValueStyles = {
@@ -119,10 +123,10 @@ const ResultCard = ({ result, index }) => {
     justifyContent: "space-between",
     padding: "16px 0 0",
     marginTop: "16px",
-    borderTop: "1px solid #e5e7eb",
+    borderTop: `1px solid ${colors.ui.border}`,
     fontSize: "14px",
     fontWeight: "600",
-    color: "#111827",
+    color: colors.text.primary,
     fontFamily:
       "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   };
@@ -130,10 +134,10 @@ const ResultCard = ({ result, index }) => {
   const savingsStyles = {
     marginTop: "1px",
     padding: "12px 24px",
-    backgroundColor: "#f0fdf4",
+    backgroundColor: colors.ui.backgroundShade,
     borderBottomLeftRadius: "8px",
     borderBottomRightRadius: "8px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.ui.border}`,
     borderTop: "none",
     display: "flex",
     gap: "12px",
@@ -142,12 +146,12 @@ const ResultCard = ({ result, index }) => {
 
   const savingsIconStyles = {
     padding: "6px",
-    backgroundColor: "#ecfdf5",
+    backgroundColor: colors.accent.redLight,
     borderRadius: "6px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    border: "1px solid #86efac",
+    border: `1px solid ${colors.accent.red}`,
     flexShrink: 0,
     marginTop: "2px",
   };
@@ -159,7 +163,7 @@ const ResultCard = ({ result, index }) => {
   const savingsTitleStyles = {
     fontSize: "13px",
     fontWeight: "600",
-    color: "#047857",
+    color: colors.accent.red,
     marginBottom: "4px",
     display: "flex",
     alignItems: "center",
@@ -168,7 +172,7 @@ const ResultCard = ({ result, index }) => {
 
   const savingsTextStyles = {
     fontSize: "13px",
-    color: "#065f46",
+    color: colors.text.primary,
     lineHeight: "1.4",
   };
 
@@ -232,7 +236,11 @@ const ResultCard = ({ result, index }) => {
           <div>
             <span style={priceStyles}>${formatCurrency(amounts.total)}</span>
             <span
-              style={{ marginLeft: "4px", color: "#6b7280", fontSize: "14px" }}
+              style={{
+                marginLeft: "4px",
+                color: colors.text.secondary,
+                fontSize: "14px",
+              }}
             >
               /mo
             </span>
@@ -282,7 +290,11 @@ const ResultCard = ({ result, index }) => {
         <div style={savingsStyles}>
           <div style={savingsIconStyles}>
             <span
-              style={{ fontSize: "14px", color: "#059669", fontWeight: "600" }}
+              style={{
+                fontSize: "14px",
+                color: colors.accent.red,
+                fontWeight: "600",
+              }}
             >
               $
             </span>

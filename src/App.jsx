@@ -17,7 +17,7 @@ import { colors } from "./constants/colors";
 const App = () => {
   const [planSet, setPlanSet] = useState("new");
   const [features, setFeatures] = useState({
-    videoStorageHours: null,
+    videoStorageHours: planSet === "current" ? "none" : "none",
     needsSubscriptions: false,
     needsAbandonedCart: false,
     needsAdvancedShipping: false,
@@ -47,8 +47,7 @@ const App = () => {
   useEffect(() => {
     setFeatures((prev) => ({
       ...prev,
-      videoStorageHours:
-        planSet === "current" ? "0-0.5" : planSet === "new" ? "0-5" : null,
+      videoStorageHours: planSet === "current" ? "none" : "none",
     }));
   }, [planSet]);
 
@@ -57,25 +56,26 @@ const App = () => {
 
     if (planSet === "current") {
       switch (storage) {
-        case "50+":
+        case "none":
+        case "0-0.5":
           return {
             plans: ["Basic Commerce", "Advanced Commerce"],
-            minDpPlan: "Pro",
-          };
-        case "10-50":
-          return {
-            plans: ["Basic Commerce", "Advanced Commerce"],
-            minDpPlan: "Core",
+            minDpPlan: null,
           };
         case "0.5-10":
           return {
             plans: ["Basic Commerce", "Advanced Commerce"],
             minDpPlan: "Starter",
           };
-        case "0-0.5":
+        case "10-50":
           return {
             plans: ["Basic Commerce", "Advanced Commerce"],
-            minDpPlan: null,
+            minDpPlan: "Core",
+          };
+        case "50+":
+          return {
+            plans: ["Basic Commerce", "Advanced Commerce"],
+            minDpPlan: "Pro",
           };
         default:
           console.warn("Unexpected storage value for current plans:", storage);
@@ -86,12 +86,13 @@ const App = () => {
       }
     } else {
       switch (storage) {
-        case "50+":
-          return { plans: ["Advanced"], minDpPlan: null };
-        case "5-50":
-          return { plans: ["Plus", "Advanced"], minDpPlan: null };
+        case "none":
         case "0-5":
           return { plans: ["Core", "Plus", "Advanced"], minDpPlan: null };
+        case "5-50":
+          return { plans: ["Plus", "Advanced"], minDpPlan: null };
+        case "50+":
+          return { plans: ["Advanced"], minDpPlan: null };
         default:
           console.warn("Unexpected storage value for new plans:", storage);
           return { plans: ["Core", "Plus", "Advanced"], minDpPlan: null };

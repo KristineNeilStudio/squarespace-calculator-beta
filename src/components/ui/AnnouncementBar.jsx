@@ -1,5 +1,6 @@
 import React from "react";
 import { colors } from "../../constants/colors";
+import { fonts } from "../../constants/fonts";
 
 const AnnouncementBar = ({ message }) => {
   return (
@@ -13,8 +14,7 @@ const AnnouncementBar = ({ message }) => {
         zIndex: 1000,
         fontSize: "14px",
         fontWeight: "500",
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: fonts.families.body,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

@@ -1,5 +1,6 @@
 import React from "react";
 import { colors } from "../../constants/colors";
+import { fonts } from "../../constants/fonts";
 
 const CalculatorButton = ({ onClick, disabled = false }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -11,6 +12,8 @@ const CalculatorButton = ({ onClick, disabled = false }) => {
     padding: "12px 24px",
     fontSize: "16px",
     fontWeight: "500",
+    fontFamily: fonts.families.display,
+    letterSpacing: "0.025em",
     borderRadius: "8px",
     transition: "all 0.2s ease",
     cursor: disabled ? "not-allowed" : "pointer",

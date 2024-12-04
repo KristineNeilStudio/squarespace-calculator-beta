@@ -1,9 +1,10 @@
 import React from "react";
 import { colors } from "../../../../constants/colors";
+import { fonts } from "../../../../constants/fonts";
 
 const ResultCard = ({ result, index }) => {
   const cardStyles = {
-    width: "100%", // Ensure the card takes up the full width of its parent
+    width: "100%",
     position: "relative",
     backgroundColor: index === 0 ? colors.ui.backgroundShade : colors.ui.white,
     borderRadius: "8px",
@@ -21,6 +22,7 @@ const ResultCard = ({ result, index }) => {
     fontSize: "12px",
     fontWeight: "600",
     letterSpacing: "0.025em",
+    fontFamily: fonts.families.display,
     borderBottomLeftRadius: "6px",
     borderBottomRightRadius: "6px",
     boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
@@ -38,6 +40,8 @@ const ResultCard = ({ result, index }) => {
     marginBottom: "12px",
     color: colors.text.primary,
     lineHeight: "1.2",
+    fontFamily: fonts.families.display,
+    letterSpacing: "0.025em",
   };
 
   const badgeContainerStyles = {
@@ -61,6 +65,7 @@ const ResultCard = ({ result, index }) => {
     backgroundColor: colors.accent.redLight,
     border: `1px solid ${colors.accent.red}`,
     color: colors.accent.red,
+    fontFamily: fonts.families.body,
   };
 
   const dpPlanBadgeStyles = {
@@ -80,6 +85,7 @@ const ResultCard = ({ result, index }) => {
     fontSize: "20px",
     fontWeight: "600",
     color: colors.text.primary,
+    fontFamily: fonts.families.mono,
   };
 
   const breakdownContainerStyles = {
@@ -95,6 +101,7 @@ const ResultCard = ({ result, index }) => {
     fontWeight: "500",
     color: colors.text.secondary,
     marginBottom: "8px",
+    fontFamily: fonts.families.body,
   };
 
   const lineItemStyles = {
@@ -103,17 +110,16 @@ const ResultCard = ({ result, index }) => {
     fontSize: "13px",
     color: colors.text.secondary,
     padding: "4px 0",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: fonts.families.body,
   };
 
   const lineItemLabelStyles = {
     color: colors.text.secondary,
+    fontFamily: fonts.families.body,
   };
 
   const lineItemValueStyles = {
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: fonts.families.mono,
     fontFeatureSettings: "tnum",
     fontVariantNumeric: "tabular-nums",
   };
@@ -127,8 +133,7 @@ const ResultCard = ({ result, index }) => {
     fontSize: "14px",
     fontWeight: "600",
     color: colors.text.primary,
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: fonts.families.body,
   };
 
   const savingsStyles = {
@@ -168,14 +173,18 @@ const ResultCard = ({ result, index }) => {
     display: "flex",
     alignItems: "center",
     gap: "6px",
+    fontFamily: fonts.families.display,
+    letterSpacing: "0.025em",
   };
 
   const savingsTextStyles = {
     fontSize: "13px",
     color: colors.text.primary,
     lineHeight: "1.4",
+    fontFamily: fonts.families.body,
   };
 
+  // Rest of the component code remains the same
   const amounts = {
     total: result.monthlyCost,
     subscription: result.breakdown.monthlySubscription,
@@ -201,6 +210,7 @@ const ResultCard = ({ result, index }) => {
     </div>
   );
 
+  // Return JSX remains exactly the same
   return (
     <div style={{ position: "relative" }}>
       <div style={cardStyles}>
@@ -240,6 +250,7 @@ const ResultCard = ({ result, index }) => {
                 marginLeft: "4px",
                 color: colors.text.secondary,
                 fontSize: "14px",
+                fontFamily: fonts.families.body,
               }}
             >
               /mo
@@ -294,6 +305,7 @@ const ResultCard = ({ result, index }) => {
                 fontSize: "14px",
                 color: colors.accent.red,
                 fontWeight: "600",
+                fontFamily: fonts.families.mono,
               }}
             >
               $

@@ -10,14 +10,16 @@ export const colors = {
     lightest: "#f0f2f5",
   },
   accent: {
-    red: "#c83e2d",
-    redLight: "#fff1f0",
+    red: "#2d3a47",
+    redLight: "#c3cbd7",
+    navy: "#111827",
   },
   // UI Colors
   ui: {
     white: "#ffffff",
     border: "#c3cbd7",
     backgroundShade: "#f0f2f5",
+    button: "#c83e2d",
   },
   // Text Colors
   text: {

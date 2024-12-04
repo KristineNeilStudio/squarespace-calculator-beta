@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { colors } from "../../constants/colors";
 
 const Footer: React.FC = () => {
+  const [isButtonHovered, setIsButtonHovered] = React.useState(false);
+
   const footerStyles: React.CSSProperties = {
     maxWidth: "1200px",
     margin: "0 auto",
@@ -33,7 +35,7 @@ const Footer: React.FC = () => {
     alignItems: "center",
     justifyContent: "center",
     padding: "12px 24px",
-    backgroundColor: colors.accent.red,
+    backgroundColor: isButtonHovered ? colors.ui.button : colors.primary.dark,
     color: colors.ui.white,
     borderRadius: "8px",
     border: "none",
@@ -44,6 +46,10 @@ const Footer: React.FC = () => {
     cursor: "pointer",
     gap: "8px",
     marginTop: "16px",
+    boxShadow: isButtonHovered
+      ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+      : "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+    transform: isButtonHovered ? "translateY(-1px)" : "none",
   };
 
   const linkStyles: React.CSSProperties = {
@@ -107,6 +113,8 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={buttonStyles}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
           >
             Get The Course Details
             <ArrowRight width={20} height={20} />

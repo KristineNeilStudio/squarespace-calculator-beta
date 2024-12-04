@@ -1,7 +1,7 @@
 export const fonts = {
   // Font Families
   families: {
-    display: '"Bebas Neue", system-ui, sans-serif',
+    display: '"Open Sans", system-ui, sans-serif',
     body: '"Open Sans", system-ui, sans-serif',
     mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
   },
@@ -18,13 +18,13 @@ export const fonts = {
   styles: {
     // Headers
     pageTitle: {
-      family: '"Bebas Neue", system-ui, sans-serif',
+      family: '"Open Sans", system-ui, sans-serif',
       size: "24px",
       weight: "400",
       letterSpacing: "0.025em",
     },
     sectionTitle: {
-      family: '"Bebas Neue", system-ui, sans-serif',
+      family: '"Open Sans", system-ui, sans-serif',
       size: "18px",
       weight: "400",
       letterSpacing: "0.025em",
@@ -53,7 +53,7 @@ export const fonts = {
 
     // Interactive Elements
     button: {
-      family: '"Bebas Neue", system-ui, sans-serif',
+      family: '"Open Sans", system-ui, sans-serif',
       size: "16px",
       weight: "400",
       letterSpacing: "0.05em",

@@ -1,8 +1,0 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;500;600;700&display=swap");
-
-html,
-body {
-  margin: 0; /* Remove potential default margins */
-  padding: 0; /* Remove default padding */
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}

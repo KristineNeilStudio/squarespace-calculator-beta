@@ -1,10 +1,26 @@
-// src/types/fees.ts
+// types/fees.ts
+export interface ProcessingFeeParams {
+  monthlyPhysical: number;
+  monthlyDigital: number;
+  avgPhysicalOrder: number;
+  avgDigitalOrder: number;
+  planName: string;
+  planSet: "current" | "new";
+}
+
+export interface DigitalProductsPlan {
+  name: string;
+  monthly: number;
+  annual: number;
+  platformFee: number;
+}
 
 export interface FeeCalculation {
-  processorName: string; // Adding this to match what we're using
+  processorName: string;
   processingFees: number;
   digitalPlatformFees: number;
   dpPlanFee: number;
+  dpPlanName: string;
 }
 
 export interface FeeBreakdown {
@@ -13,7 +29,6 @@ export interface FeeBreakdown {
   monthlyDpPlan?: number;
   annualDpPlan?: number;
   processingFees: number;
-  physicalPlatformFee?: number;
   digitalPlatformFee: number;
 }
 

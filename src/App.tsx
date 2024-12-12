@@ -12,7 +12,7 @@ import { determineEligiblePlans } from "./utils/planEligibility";
 import { getAllPossibleFeeCalculations } from "./utils/feeCalculator";
 import { PLAN_PRICING } from "./constants/planPricing";
 import type { Metrics } from "./components/core/BusinessMetricsSection";
-import type { FeeResult, FeeCalculation } from "./types/fees";
+import type { FeeResult } from "./types/fees";
 import Footer from "./components/ui/Footer";
 
 // Types
